@@ -214,39 +214,30 @@
       animation: scrollLine 2s ease-in-out infinite;
     }
     @keyframes scrollLine{0%,100%{opacity:0.3;transform:scaleY(1);}50%{opacity:1;transform:scaleY(0.6);}}
+
     .hero-avatar {
-  position: absolute;
-  right: 80px;
-  top: 20%;
-  transform: translateY(-50%);
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  padding: 5px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 0 60px var(--glow), 0 8px 40px rgba(0,0,0,0.15);
-  animation: fadeUp 1s 0.8s forwards;
-  opacity: 0;
-}
+      position: absolute;
+      right: 80px;
+      top: 20%;
+      transform: translateY(-50%);
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(135deg, var(--accent), transparent);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+      animation: fadeUp 1s 0.8s forwards;
+      opacity: 0;
+    }
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--card);
+      display: block;
+    }
 
-.hero-avatar img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--card);
-  display: block;
-}
-
-@media (max-width: 900px) {
-  .hero-avatar {
-    position: static;
-    transform: none;
-    width: 160px;
-    height: 160px;
-    margin-bottom: 28px;
-  }
-}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 
     /* ── SECTIONS ── */
@@ -286,7 +277,6 @@
       border-radius: 16px; padding: 32px; box-shadow: var(--shadow);
     }
     .skill-category:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-    .skill-cat-icon { font-size: 1.8rem; margin-bottom: 16px; }
     .skill-cat-title { font-size: 0.95rem; font-weight: 600; color: var(--fg); margin-bottom: 16px; }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
@@ -312,7 +302,6 @@
     }
     .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
     .project-card:hover::before { transform: scaleX(1); }
-    .project-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: var(--accent); margin-bottom: 16px; font-style: italic; }
     .project-title { font-size: 1.15rem; font-weight: 600; color: var(--fg); margin-bottom: 12px; letter-spacing: -0.01em; }
     .project-desc { font-size: 0.9rem; color: var(--fg2); line-height: 1.7; margin-bottom: 24px; font-weight: 300; }
     .project-footer { display: flex; align-items: center; justify-content: space-between; }
@@ -348,7 +337,6 @@
       border: 1px solid var(--border); border-radius: 24px;
       padding: 64px; box-shadow: var(--shadow);
     }
-    .contact-desc { font-size: 1rem; color: var(--fg2); line-height: 1.75; margin-bottom: 40px; font-weight: 300; }
     .contact-links { display: flex; flex-direction: column; gap: 16px; }
     .contact-item {
       display: flex; align-items: center; gap: 16px;
@@ -360,7 +348,6 @@
     .contact-item:hover { transform: translateX(6px); background: var(--fg); border-color: var(--fg); }
     .contact-item:hover .contact-item-label,
     .contact-item:hover .contact-item-value { color: var(--bg); }
-    .contact-item-icon { font-size: 1.1rem; width: 20px; text-align: center; }
     .contact-item-label { font-size: 0.75rem; color: var(--fg2); text-transform: uppercase; letter-spacing: 0.1em; }
     .contact-item-value { font-size: 0.92rem; color: var(--fg); font-weight: 500; }
 
@@ -390,6 +377,13 @@
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
       .contact-inner { padding: 40px 28px; }
+      .hero-avatar {
+        position: static;
+        transform: none;
+        width: 160px;
+        height: 160px;
+        margin-bottom: 28px;
+      }
     }
   </style>
 </head>
@@ -409,7 +403,6 @@
         <li><a href="#content">Content</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <!-- ☽/ ☼ Toggle -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
         <span class="toggle-icon icon-sun">☼</span>
         <span class="toggle-icon icon-moon">☽</span>
@@ -422,10 +415,9 @@
   <section id="hero">
     <div class="hero-bg-circle hbc1"></div>
     <div class="hero-bg-circle hbc2"></div>
-    <h1 class="hero-title">Hello, I'm<br><em>Shiloh Faith</em></h1>
-    <!-- Profile Picture Circle -->
+    <h1 class="hero-title">Hey there, I'm<br><em>Shiloh Faith</em></h1>
     <div class="hero-avatar">
-    <img src="myphoto.jpg" alt="Your Name" />
+      <img src="myphoto.jpg" alt="Your Name" />
     </div>
     <div class="hero-eyebrow">B.E. Computer Science and Engineering Student at Jerusalem College of Engineering</div>
     <p class="hero-sub">Aspiring Cybersecurity Professional<br>View my weekly newsletters on Labyrinth (yet to release)</p>
@@ -448,13 +440,13 @@
       <div class="about-text">
         <p>Growing up, my love for <strong>Ethical Hacking</strong> and <strong>Security</strong> never wavered. So, when I got the chance to choose what I wanted to pursue, I decided to start learning <strong>Cybersecurity</strong>.</p>
         <p>After coming to college, I started exploring <strong>Web Development</strong> with the assistance of <strong>Artificial Intelligence</strong> and fell in love with it as well.</p>
-        <p>Having learned Java and HTML at school, I quickly picked up C, Python, CSS and JavaScript. When I'm not studying, I explore open-source tools, tinker with side projects, and research emerging technologies like <strong>Cloud and Quantum Computing</strong>.</p>
+        <p>Having learnt Java and HTML at school, I quickly picked up C, Python, CSS and JavaScript. When I'm not studying, I explore open-source tools, tinker with side projects, and research emerging technologies like <strong>Cloud and Quantum Computing</strong>.</p>
       </div>
       <div class="about-stats">
         <div class="stat-card"><div class="stat-num">1st</div><div class="stat-label">Year of Engineering</div></div>
         <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Curiosity & Drive</div></div>
-        <div class="stat-card"><div class="stat-num">1</div><div class="stat-label">Projects Explored</div></div>
-        <div class="stat-card"><div class="stat-num">-</div><div class="stat-label">Internships Experienced</div></div>
+        <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Projects Explored</div></div>
+        <div class="stat-card"><div class="stat-num">1</div><div class="stat-label">Internships Experienced</div></div>
       </div>
     </div>
   </section>
@@ -477,6 +469,7 @@
         <div class="skill-cat-title">Tools & Platforms</div>
         <div class="skill-tags"><span class="tag">VS Code</span><span class="tag">GitHub</span><span class="tag">Git</span></div>
       </div>
+    </div>
   </section>
 
   <!-- Projects -->
@@ -487,12 +480,28 @@
     <div class="projects-grid">
       <div class="project-card reveal">
         <div class="project-title">Personal Portfolio Website</div>
-        <p class="project-desc">A minimalistic website that you're viewing now, built from scratch using HTML, CSS and JavaScript.</p>
+        <p class="project-desc">A minimalistic website that you're viewing now, built to display my progress at tech.</p>
         <div class="project-footer">
           <div class="project-stack"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
           <a href="#" class="project-link" title="View Project">↗</a>
         </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-title">Cryptexa</div>
+        <p class="project-desc">A platform to decode hype, expose market manipulation, and track real-time cryptocurrency divergence, that my team and I built for our first hackathon.</p>
+        <div class="project-footer">
+          <div class="project-stack"><span class="tag">Firebase</span><span class="tag">CoinGecko</span></div>
+          <a href="https://kevinjosh10.github.io/Cryptexa/frontend/index.html" class="project-link" title="View Project">↗</a>
         </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-title">AI PDF Companion</div>
+        <p class="project-desc">A simple AI-powered web application that can read your PDFs and answer your questions.</p>
+        <div class="project-footer">
+          <div class="project-stack"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">GeminiAPI</span></div>
+          <a href="https://ai-pdf-assistant-8hymgebtssqcbtr46bxqtw.streamlit.app/" class="project-link" title="View Project">↗</a>
+        </div>
+      </div>
       <div class="project-card reveal">
         <div class="project-title">Labyrinth Website</div>
         <p class="project-desc">A website that I'm currently working on.</p>
@@ -500,6 +509,7 @@
           <div class="project-stack"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
         </div>
       </div>
+    </div>
   </section>
 
   <!-- Content -->
@@ -521,7 +531,7 @@
       <a href="#" class="content-card reveal" style="transition-delay:0.2s">
         <div class="content-type">📝 Notes</div>
         <div class="content-title">How to learn anything</div>
-        <p class="content-desc">A beginner’s guide to embrace learning every day, staying consistent, and avoiding burnout.</p>
+        <p class="content-desc">A beginner's guide to embrace learning every day, staying consistent, and avoiding burnout.</p>
       </a>
     </div>
   </section>
@@ -552,7 +562,6 @@
     const html = document.documentElement;
     const toggleBtn = document.getElementById('themeToggle');
 
-    // Respect saved preference or system preference on load
     const saved = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     html.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
